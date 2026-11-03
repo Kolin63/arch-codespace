@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 if [[ "$(pwd)" == "/workspaces/arch-codespace" ]]; then
-  cd $HOME
+  cd /home/vscode
 fi

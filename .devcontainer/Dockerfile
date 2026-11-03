@@ -18,12 +18,12 @@ RUN groupadd -g $USER_GID $USERNAME && \
 USER $USERNAME
 WORKDIR /workspaces
 
-RUN cd $HOME && \
+RUN cd /home/vscode && \
     sudo pacman -S --needed git base-devel && \
     git clone https://aur.archlinux.org/yay-bin.git && \
     cd yay-bin && makepkg -si --noconfirm && cd .. && \
     rm -rf yay-bin
-RUN cd $HOME && git clone https://github.com/kolin63/.dotfiles.git
-RUN yay -S --noconfirm $(cat $HOME/.dotfiles/yay/codespaces.txt)
-RUN rm $HOME/.bashrc && bash $HOME/.dotfiles/symlink.sh
-RUN cp /workspaces/arch-codespace/lbashrc $HOME/.dotfiles/lbashrc
+RUN cd /home/vscode && git clone https://github.com/kolin63/.dotfiles.git
+RUN yay -S --noconfirm $(cat /home/vscode/.dotfiles/yay/codespaces.txt)
+RUN rm /home/vscode/.bashrc && bash /home/vscode/.dotfiles/symlink.sh
+RUN cp /workspaces/arch-codespace/lbashrc /home/vscode/.dotfiles/lbashrc
