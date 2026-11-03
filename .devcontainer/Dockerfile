@@ -26,4 +26,7 @@ RUN cd /home/vscode && \
     cd /home/vscode && git clone https://github.com/kolin63/.dotfiles.git && \
     yay -S --noconfirm $(cat /home/vscode/.dotfiles/yay/codespaces.txt) && \
     rm /home/vscode/.bashrc && bash /home/vscode/.dotfiles/symlink.sh && \
-    cp /workspaces/arch-codespace/lbashrc /home/vscode/.dotfiles/lbashrc
+    echo "#!/usr/bin/env bash" > /home/vscode/.dotfiles/lbashrc && \
+    echo "if [[ \"\$(pwd)\" == "/workspaces/arch-codespace" ]]; then" > /home/vscode/.dotfiles/lbashrc && \
+    echo "  cd /home/vscode" > /home/vscode/.dotfiles/lbashrc && \
+    echo "fi /home/vscode/.dotfiles/lbashrc" > /home/vscode/.dotfiles/lbashrc
