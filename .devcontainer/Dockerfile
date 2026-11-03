@@ -22,8 +22,8 @@ RUN cd /home/vscode && \
     sudo pacman -S --needed git base-devel && \
     git clone https://aur.archlinux.org/yay-bin.git && \
     cd yay-bin && makepkg -si --noconfirm && cd .. && \
-    rm -rf yay-bin
-RUN cd /home/vscode && git clone https://github.com/kolin63/.dotfiles.git
-RUN yay -S --noconfirm $(cat /home/vscode/.dotfiles/yay/codespaces.txt)
-RUN rm /home/vscode/.bashrc && bash /home/vscode/.dotfiles/symlink.sh
-RUN cp /workspaces/arch-codespace/lbashrc /home/vscode/.dotfiles/lbashrc
+    rm -rf yay-bin && \
+    cd /home/vscode && git clone https://github.com/kolin63/.dotfiles.git && \
+    yay -S --noconfirm $(cat /home/vscode/.dotfiles/yay/codespaces.txt) && \
+    rm /home/vscode/.bashrc && bash /home/vscode/.dotfiles/symlink.sh && \
+    cp /workspaces/arch-codespace/lbashrc /home/vscode/.dotfiles/lbashrc
