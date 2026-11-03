@@ -16,3 +16,8 @@ RUN groupadd -g $USER_GID $USERNAME && \
 
 USER $USERNAME
 WORKDIR /workspaces
+
+RUN cd $HOME && sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si --noconfirm && cd .. && rm -rf yay-bin
+RUN cd $HOME && git clone https://github.com/kolin63/.dotfiles.git
+RUN yay -S --noconfirm $(cat $HOME/.dotfiles/yay/codespaces.txt)
+RUN bash $HOME/.dotfiles/symlink.sh
