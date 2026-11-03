@@ -2,11 +2,10 @@
 
 FROM archlinux:latest
 
-RUN pacman -Sy --noconfirm archlinux-keyring && \
+RUN pacman-key --init && \
+    pacman -Sy --noconfirm archlinux-keyring && \
     pacman -Syu --noconfirm && \
     pacman -S --noconfirm base-devel git sudo
-
-RUN sudo pacman-key --init
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
