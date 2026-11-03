@@ -21,4 +21,4 @@ RUN cd $HOME && sudo pacman -S --needed git base-devel && git clone https://aur.
 RUN cd $HOME && git clone https://github.com/kolin63/.dotfiles.git
 RUN yay -S --noconfirm $(cat $HOME/.dotfiles/yay/codespaces.txt)
 RUN rm $HOME/.bashrc && bash $HOME/.dotfiles/symlink.sh
-RUN cd $HOME
+RUN cp /workspaces/arch-codespace/lbashrc $HOME/.dotfiles/lbashrc
