@@ -29,4 +29,4 @@ RUN cd /home/vscode && \
     echo "#!/usr/bin/env bash" > /home/vscode/.dotfiles/lbashrc && \
     echo "if [[ \"\$(pwd)\" == "/workspaces/arch-codespace" ]]; then" >> /home/vscode/.dotfiles/lbashrc && \
     echo "  cd /home/vscode" >> /home/vscode/.dotfiles/lbashrc && \
-    echo "fi /home/vscode/.dotfiles/lbashrc" >> /home/vscode/.dotfiles/lbashrc
+    echo "fi" >> /home/vscode/.dotfiles/lbashrc
